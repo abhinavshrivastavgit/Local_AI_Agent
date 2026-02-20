@@ -1,0 +1,39 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints
+
+# Vector database
+chrome_langchain_db
+
+# Large AI models / local data
+models/
+*.bin
+*.gguf
+
+# Temporary files
+temp/
+tmp/
+
+# IDE files
+.vscode/
+.idea/
