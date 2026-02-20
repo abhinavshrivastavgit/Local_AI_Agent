@@ -33,13 +33,15 @@
 ### 📂 Directory Structure
 
 ```text
-├── chroma_db/        # Persistent vector database files
-├── knowledge/        # Source policy documents (CSV/TXT)
-├── n8n_workflows/    # Exported n8n .json workflow files
-├── scripts/
-│   ├── ingest.py     # Script to process & index data
-│   └── chat.py       # Local terminal chat interface
-└── README.md
+Local_AI_AGENT
+│
+├── data/
+│   └── realistic_restaurant_reviews.csv
+│
+├── main.py
+├── vector.py
+├── README.md
+└── requirements.txt
 
 ```
 
