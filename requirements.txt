@@ -1,4 +1,0 @@
-langchain
-lanchain-ollama
-lanchain-chroma
-pandas
