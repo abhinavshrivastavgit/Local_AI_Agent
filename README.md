@@ -1,65 +1,266 @@
-# 🤖 Private Policy Intel: Local RAG Chatbot
+# 🚀 Local AI RAG System — Private Document Chatbot
 
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Ollama](https://img.shields.io/badge/LLM-Ollama-white.svg)](https://ollama.com/)
-[![VectorDB](https://img.shields.io/badge/VectorDB-Chroma-orange.svg)](https://www.trychroma.com/)
-[![Automation](https://img.shields.io/badge/Workflow-n8n-red.svg)](https://n8n.io/)
+A fully local **Retrieval-Augmented Generation (RAG)** system that allows you to chat with your own data using local LLMs — without sending any information to external APIs.
 
-### 🌟 Project Vision
-
-**Rag Chatbot 1** is a privacy-first, enterprise-grade Retrieval-Augmented Generation (RAG) system. It allows firms to query "heavy" internal documentation (like Flipkart's corporate policies) with **100% data sovereignty**. Unlike cloud-based solutions, this system runs entirely on local hardware, ensuring that sensitive data never leaves the firm's private network.
+This project demonstrates how modern AI systems used in companies actually work internally.
 
 ---
 
-### 🚀 Key Features
+# 🧠 What This Project Does
 
-- **Zero-Cloud Privacy:** No data is sent to OpenAI or third-party servers. All processing is local.
-- **Intelligent Retrieval:** Uses `nomic-embed-text` to understand semantic intent rather than simple keyword matching.
-- **Visual Orchestration:** Integrated with **n8n** for easy workflow management and task automation.
-- **Persistent Memory:** Powered by **ChromaDB**, ensuring fast and reliable access to indexed policy data.
+This system allows users to:
+
+- Load a dataset or documents
+- Convert them into embeddings
+- Store them inside a vector database
+- Retrieve relevant context
+- Generate answers using a **local LLM**
+
+Everything runs **completely offline**.
+
+No OpenAI API.  
+No external services.  
+100% local AI.
 
 ---
 
-### 🛠️ Tech Stack
+# 🏗 System Architecture
 
-- **LLM Engine:** [Ollama](https://ollama.com/) (running Llama 3.2)
-- **Vector Database:** [ChromaDB](https://www.trychroma.com/)
-- **Workflow Automation:** [n8n](https://n8n.io/)
-- **Orchestration:** [LangChain](https://www.langchain.com/)
-- **Data Format:** CSV, TXT, PDF
+User Question  
+↓  
+Retriever (Vector Search - ChromaDB)  
+↓  
+Relevant Context Retrieved  
+↓  
+Prompt Template  
+↓  
+Local LLM (Ollama - Llama Model)  
+↓  
+Generated Answer
+
+This is the same architecture used in many production AI systems.
 
 ---
 
-### 📂 Directory Structure
+# 🔥 Why This Project Is Important
 
-```text
+Most developers only use API-based AI tools.
+
+But real AI engineers build systems that:
+
+- Protect sensitive data
+- Work offline
+- Scale with internal datasets
+- Use retrieval-based intelligence
+
+This project demonstrates that workflow.
+
+---
+
+# ⚙️ Tech Stack
+
+**LLM Runtime**  
+Ollama
+
+**LLM Model**  
+Llama 3.2
+
+**Embeddings Model**  
+nomic-embed-text
+
+**Vector Database**  
+ChromaDB
+
+**AI Framework**  
+LangChain
+
+**Programming Language**  
+Python
+
+**Dataset**  
+Restaurant Reviews CSV
+
+---
+
+# 📂 Project Structure
+
+```
 Local_AI_AGENT
 │
 ├── data/
 │   └── realistic_restaurant_reviews.csv
 │
-├── main.py
 ├── vector.py
-├── README.md
-└── requirements.txt
-
+│   Handles:
+│   - Data loading
+│   - Document conversion
+│   - Embeddings
+│   - Vector database creation
+│
+├── main.py
+│   Runs:
+│   - Chat interface
+│   - Retrieval system
+│   - LLM responses
+│
+├── chroma_db/
+│   Vector database storage
+│
+├── requirements.txt
+│   Project dependencies
+│
+└── README.md
 ```
 
 ---
 
-### ⚙️ Installation & Setup
+# 🧩 Core Components
 
-- **Pull Local Models**
-  Ensure Ollama is installed and run:
+### 1. Data Loader
+Reads dataset from CSV file using Pandas.
 
-```Bash
+### 2. Document Processor
+Converts dataset rows into LangChain documents.
+
+### 3. Embedding Generator
+Creates semantic embeddings using:
+
+```
+nomic-embed-text
+```
+
+### 4. Vector Database
+Stores embeddings using:
+
+```
+ChromaDB
+```
+
+### 5. Retriever
+Searches for the most relevant context based on the user question.
+
+### 6. Local LLM
+Generates final answers using:
+
+```
+Llama 3.2
+```
+
+---
+
+# 🛠 Installation
+
+## Step 1 — Install Ollama
+
+Download from:
+
+https://ollama.com/
+
+---
+
+## Step 2 — Pull Required Models
+
+Run this in terminal:
+
+```
 ollama pull llama3.2
 ollama pull nomic-embed-text
 ```
 
-- **Setup Python Environment**
+---
 
-```Bash
-pip install chromadb langchain-ollama langchain-community pypdf pandas
+## Step 3 — Install Python Dependencies
 
 ```
+pip install -r requirements.txt
+```
+
+If requirements file is missing:
+
+```
+pip install chromadb
+pip install langchain
+pip install langchain-ollama
+pip install langchain-community
+pip install pandas
+pip install pypdf
+```
+
+---
+
+# ▶️ Running the Project
+
+Start Ollama:
+
+```
+ollama serve
+```
+
+Run the chatbot:
+
+```
+python main.py
+```
+
+---
+
+# 💬 Example Questions
+
+You can ask:
+
+- Which restaurant has the best reviews?
+- What do customers complain about the most?
+- Summarize customer feedback.
+- Which place has the best pizza?
+
+---
+
+# 🧪 Learning Goals Behind This Project
+
+This project helped me understand:
+
+- How RAG systems actually work
+- How embeddings power semantic search
+- How vector databases store knowledge
+- How local LLMs can replace cloud APIs
+- How to structure real AI projects
+
+---
+
+# 🚀 Future Improvements
+
+Planned upgrades:
+
+- PDF document support
+- Multi-dataset ingestion
+- Web UI interface
+- Conversation memory
+- n8n automation integration
+- API endpoint for deployment
+- Docker containerization
+
+---
+
+# 👨‍💻 Author
+
+Abhinav Shrivastav
+
+Building projects in:
+- AI
+- Data Engineering
+- Automation
+- Local LLM Systems
+
+---
+
+# 🌟 Project Vision
+
+The goal is to move from:
+
+Using AI tools  
+to  
+Building AI systems.
+
+---
+
+If you found this interesting, feel free to connect or follow the journey.
